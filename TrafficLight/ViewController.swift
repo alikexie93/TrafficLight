@@ -8,12 +8,21 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet var redTrafficLight: UIView!
+    @IBOutlet var yellowTrafficLight: UIView!
+    @IBOutlet var greenTrafficLight: UIView!
+    
+    @IBOutlet var startButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        startButton.layer.cornerRadius = 16
     }
 
+    @IBAction func startButtonTapped(_ sender: UIButton) {
+    }
+    
 
 }
 
