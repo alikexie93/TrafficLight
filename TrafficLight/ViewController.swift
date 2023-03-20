@@ -17,6 +17,7 @@ final class ViewController: UIViewController {
     
     private var currentLight = CurrentLight.red
     private let lightOn: CGFloat = 1.0
+    private let lightOff: CGFloat = 0.3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,16 +37,16 @@ final class ViewController: UIViewController {
         }
         switch currentLight {
         case .red:
-            greenTrafficLight.alpha = 0.3
+            greenTrafficLight.alpha = lightOff
             redTrafficLight.alpha = lightOn
             currentLight = .yellow
         case .yellow:
-            redTrafficLight.alpha = 0.3
+            redTrafficLight.alpha = lightOff
             yellowTrafficLight.alpha = lightOn
             currentLight = .green
         case .green:
             greenTrafficLight.alpha = lightOn
-            yellowTrafficLight.alpha = 0.3
+            yellowTrafficLight.alpha = lightOff
             currentLight = .red
         }
     }
