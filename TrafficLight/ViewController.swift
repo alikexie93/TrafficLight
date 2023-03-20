@@ -18,16 +18,16 @@ final class ViewController: UIViewController {
     private var currentLight = CurrentLight.red
     //Здесь мы задали цвета через перечисление enum и используем их через расширение extension, и задали текущий цвет красный
     private let lightOn: CGFloat = 1.0
-    private let lightOff: CGFloat = 0.3
     
     override func viewDidLoad() {
         super.viewDidLoad()
         startButton.layer.cornerRadius = 16
         
-        redTrafficLight.alpha = lightOff
-        yellowTrafficLight.alpha = lightOff
-        greenTrafficLight.alpha = lightOff
+        print("Размер стороны, доступный в методе viewDidLoad: \(redTrafficLight.frame.height)")
         
+    }
+    
+    override func viewWillLayoutSubviews() {
         redTrafficLight.layer.cornerRadius = redTrafficLight.frame.height / 2
         yellowTrafficLight.layer.cornerRadius = yellowTrafficLight.frame.height / 2
         greenTrafficLight.layer.cornerRadius = greenTrafficLight.frame.height / 2
@@ -42,16 +42,16 @@ final class ViewController: UIViewController {
         }
         switch currentLight {
         case .red:
-            greenTrafficLight.alpha = lightOff
+            greenTrafficLight.alpha = 0.3
             redTrafficLight.alpha = lightOn
             currentLight = .yellow
         case .yellow:
-            redTrafficLight.alpha = lightOff
+            redTrafficLight.alpha = 0.3
             yellowTrafficLight.alpha = lightOn
             currentLight = .green
         case .green:
             greenTrafficLight.alpha = lightOn
-            yellowTrafficLight.alpha = lightOff
+            yellowTrafficLight.alpha = 0.3
             currentLight = .red
         }
     }
