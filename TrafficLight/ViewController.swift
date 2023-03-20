@@ -16,14 +16,11 @@ final class ViewController: UIViewController {
     @IBOutlet var startButton: UIButton!
     
     private var currentLight = CurrentLight.red
-    //Здесь мы задали цвета через перечисление enum и используем их через расширение extension, и задали текущий цвет красный
     private let lightOn: CGFloat = 1.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         startButton.layer.cornerRadius = 16
-        
-        print("Размер стороны, доступный в методе viewDidLoad: \(redTrafficLight.frame.height)")
         
     }
     
@@ -36,9 +33,6 @@ final class ViewController: UIViewController {
     @IBAction func startButtonTapped() {
         if startButton.currentTitle == "Start" {
             startButton.setTitle("Next", for: .normal)
-            //currentLight = .red
-            //redTrafficLight.alpha = lightOn
-            //Ранее мы уже установили текущий свет и поэтому не нужно его устанавливать в данном методе
         }
         switch currentLight {
         case .red:
